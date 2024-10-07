@@ -56,20 +56,6 @@ class Customer:
     def create_order(self, coffee, price):
         return Order(self, coffee, price)
     
-    @classmethod
-    def most_aficionado(cls, coffee):
-        customers_orders = {}
-        all_orders = [order for order in Order.all if order.coffee is coffee]
-        for order in all_orders:
-            if order.customer not in customers_orders:
-                customers_orders[order.customer] = order.price
-            else:
-                customers_orders[order.customer] += order.price
-
-        # return max(customers_orders, key=customers_orders.get)
-        return customers_orders
-
-    
 class Order:
     all = []
 
@@ -113,4 +99,4 @@ class Order:
             raise Exception
         
 
-breakpoint()
+# breakpoint()
